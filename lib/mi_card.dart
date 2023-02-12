@@ -48,23 +48,23 @@ class MyApp extends StatelessWidget {
             TextField(
               obscureText: true,
               decoration: InputDecoration(
-                  prefixIcon: Padding(
+                prefixIcon: Padding(
                     padding: EdgeInsetsDirectional.only(start: 12),
                     child: Icon(
                       Icons.add_ic_call,
                     )
+                ),
+                labelText: '+1 607 282 2829',
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.red,
                   ),
-                  labelText: '+1 607 282 2829',
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.red,
-                    ),
-                  ),
+                ),
               ),
             ),
           ],
         ),
-      backgroundColor: Colors.teal,
+        backgroundColor: Colors.teal,
       ),
 
     );
