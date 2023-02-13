@@ -25,8 +25,8 @@ class _DicePageState extends State<DicePage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-            title: Text('Dice'),
-            backgroundColor: Colors.red,
+          title: Text('Dice'),
+          backgroundColor: Colors.red,
         ),
         backgroundColor: Colors.red,
         body: Center(
@@ -36,20 +36,20 @@ class _DicePageState extends State<DicePage> {
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
-                 child:
-                 TextButton(
-                      child: Image(image: AssetImage('images/dice$leftDiceNumber.png')),
-                      onPressed: (){
-                        ProcessClick();
-                      },
-                  ),
+                child:
+                TextButton(
+                  child: Image(image: AssetImage('images/dice$leftDiceNumber.png')),
+                  onPressed: (){
+                    ProcessClick();
+                  },
+                ),
               ),
               Expanded(
                 child: TextButton(
-                    child: Image(image: AssetImage('images/dice$rightDiceNumber.png')),
-                    onPressed: () {
-                      ProcessClick();
-                    },
+                  child: Image(image: AssetImage('images/dice$rightDiceNumber.png')),
+                  onPressed: () {
+                    ProcessClick();
+                  },
                 ),
               ),
             ],
