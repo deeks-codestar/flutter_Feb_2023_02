@@ -25,12 +25,12 @@ class _MagicBallState extends State<MagicBall> {
           title: Text("Ask Me Anything!"),
         ),
         body: Center(
-            child: TextButton(
-                child: Image.asset('images/ball$BallNumber.png'),
-                onPressed: () {
-                  ProcessClick();
-                },
-            ),
+          child: TextButton(
+            child: Image.asset('images/ball$BallNumber.png'),
+            onPressed: () {
+              ProcessClick();
+            },
+          ),
         ),
         backgroundColor: Colors.blue,
       ),
