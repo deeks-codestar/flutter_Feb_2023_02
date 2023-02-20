@@ -21,7 +21,7 @@ class _XyloState extends State<Xylo> {
           print("Pressed: $input_color");
           final player = AudioPlayer();
           player.play(AssetSource('assets_note2.wav'));
-          },
+        },
       ),
     );
   }
