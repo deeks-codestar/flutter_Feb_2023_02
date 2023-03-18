@@ -1,6 +1,4 @@
-import 'quiz_brain.dart';
 import 'package:flutter/material.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 
 void main() => runApp(Quizzler());
 
@@ -10,11 +8,20 @@ class Quizzler extends StatefulWidget {
 }
 
 class _QuizzlerState extends State<Quizzler> {
+  var index = 0;
   int num_correct = 0, num_wrong = 0;
-  QuizBrain _quiz_brain = QuizBrain();
   List<Icon> scoreKeeper = [];
+  List<String> questions = [
+    "Who is smart",
+    "Why do you think this is good?",
+    "I can't do this right now?",
+    "My head is spining?",
+  ];
+  List<bool> answers = [
+    true, false, true, false,
+  ];
   void createAnswer(bool answer) {
-    if (_quiz_brain.checkAnswerAndInc(answer)) {
+    if (answer == answers[index]) {
       num_correct++;
       scoreKeeper.add(
         Icon(
@@ -31,6 +38,7 @@ class _QuizzlerState extends State<Quizzler> {
         ),
       );
     }
+    index = (index+1)% questions.length;
   }
   @override
   Widget build(BuildContext context) {
@@ -44,19 +52,19 @@ class _QuizzlerState extends State<Quizzler> {
             children: [
               Expanded(
                 child:
-                  Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Center(
-                      child: Text(
-                        _quiz_brain.getQuestion(),
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Center(
+                    child: Text(
+                      questions[index],
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
                     ),
                   ),
+                ),
                 flex: 5,
               ),
               Expanded(
@@ -74,9 +82,6 @@ class _QuizzlerState extends State<Quizzler> {
 
                     onPressed: () {
                       setState(() {
-                        if (_quiz_brain.isFinished()) {
-                          Alert(context: context, title: "RFLUTTER", desc: "Questions are done").show();
-                        }
                         createAnswer(true);
                       });
                     },
@@ -97,9 +102,6 @@ class _QuizzlerState extends State<Quizzler> {
                     child: Text('No'),
                     onPressed: () {
                       setState(() {
-                        if (_quiz_brain.isFinished()) {
-                          Alert(context: context, title: "RFLUTTER", desc: "Questions are done").show();
-                        }
                         createAnswer(false);
                       });
                     },
@@ -108,13 +110,13 @@ class _QuizzlerState extends State<Quizzler> {
               ),
               SafeArea(
                 child: Row(
-                  children: scoreKeeper
+                    children: scoreKeeper
                 ),
               ),
             ],
 
           ),
-          
+
         ),
       ),
     );

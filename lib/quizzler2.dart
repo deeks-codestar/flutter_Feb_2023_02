@@ -44,19 +44,19 @@ class _QuizzlerState extends State<Quizzler> {
             children: [
               Expanded(
                 child:
-                  Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Center(
-                      child: Text(
-                        _quiz_brain.getQuestion(),
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Center(
+                    child: Text(
+                      _quiz_brain.getQuestion(),
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
                     ),
                   ),
+                ),
                 flex: 5,
               ),
               Expanded(
@@ -108,13 +108,13 @@ class _QuizzlerState extends State<Quizzler> {
               ),
               SafeArea(
                 child: Row(
-                  children: scoreKeeper
+                    children: scoreKeeper
                 ),
               ),
             ],
 
           ),
-          
+
         ),
       ),
     );
